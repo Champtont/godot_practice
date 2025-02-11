@@ -43,15 +43,3 @@ position = Vector2(305, 434)
 
 [node name="mob3" parent="." instance=ExtResource("3_bcacy")]
 position = Vector2(731, 204)
-
-[node name="mob4" parent="." instance=ExtResource("3_bcacy")]
-position = Vector2(1723, 211)
-
-[node name="mob5" parent="." instance=ExtResource("3_bcacy")]
-position = Vector2(1825, 1091)
-
-[node name="mob6" parent="." instance=ExtResource("3_bcacy")]
-position = Vector2(557, 68)
-
-[node name="mob7" parent="." instance=ExtResource("3_bcacy")]
-position = Vector2(1530, 111)

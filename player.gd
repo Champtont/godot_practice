@@ -1,6 +1,7 @@
 extends CharacterBody2D
 #player code 
 # edit input through project tab
+var health = 100.0
 
 func _physics_process(delta):
 	#calculate character position
