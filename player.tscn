@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddd5qihlsn6wi"]
+[gd_scene load_steps=9 format=3 uid="uid://ddd5qihlsn6wi"]
 
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_2s8nv"]
 [ext_resource type="Script" path="res://player.gd" id="1_haenx"]
@@ -6,7 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://cy371n2tyc6pf" path="res://gun.tscn" id="4_2y6xw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f214h"]
-size = Vector2(82, 43)
+size = Vector2(74, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s740"]
+size = Vector2(81, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_048y7"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tf3ge"]
+bg_color = Color(0.374512, 0.696884, 5.77569e-07, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_haenx")
@@ -20,9 +37,30 @@ texture = ExtResource("2_1ttx0")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -12.5)
+position = Vector2(-2, -11.5)
 shape = SubResource("RectangleShape2D_f214h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("4_2y6xw")]
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-1.5, -12.5)
+shape = SubResource("RectangleShape2D_0s740")
+debug_color = Color(0.686994, 0.325935, 0.944667, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -102.0
+offset_top = -117.0
+offset_right = 102.0
+offset_bottom = -104.0
+theme_override_styles/background = SubResource("StyleBoxFlat_048y7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tf3ge")
+value = 100.0
+show_percentage = false

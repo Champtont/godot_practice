@@ -1,11 +1,8 @@
 res://characters/happy_boo/happy_boo.tscn
-res://characters/slime/slime.tscn
 res://player.tscn
 res://survivegame.tscn
 res://mob.tscn
 res://gun.tscn
-res://gun.gd
-res://bullet.gd
 res://bullet.tscn
-res://mob.gd
+res://characters/slime/slime.tscn
 res://player.gd

@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+signal health_depleted
 #player code 
 # edit input through project tab
 var health = 100.0
@@ -16,3 +18,11 @@ func _physics_process(delta):
 		%HappyBoo.play_walk_animation()
 	else:
 		%HappyBoo.play_idle_animation()
+		
+	const DAMAGE_RATE = 5.0		
+	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	if overlapping_mobs.size() > 0:
+		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		%HealthBar.value = health
+		if health <= 0.0:
+			health_depleted.emit()
