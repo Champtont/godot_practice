@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dipg225wa6jd0"]
+[gd_scene load_steps=9 format=3 uid="uid://dipg225wa6jd0"]
 
 [ext_resource type="Script" path="res://survivegame.gd" id="1_48k3d"]
 [ext_resource type="PackedScene" uid="uid://ddd5qihlsn6wi" path="res://player.tscn" id="1_p1s3p"]
@@ -11,20 +11,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -288, -176, 0, 0, 0, 0, 2141, -173, 0, 0, 0, 0, 2138, 1267, 0, 0, 0, 0, -294, 1317, 0, 0, 0, 0, -291, -173, 0, 0, 0, 0, -288, -176)
 }
 point_count = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kadkp"]
-bg_color = Color(0.231373, 0.588235, 0.666667, 0.921569)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kqye"]
-bg_color = Color(4.90934e-06, 0.70012, 0.5798, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8ncj"]
 bg_color = Color(0.160213, 0.482101, 0.803234, 1)
@@ -68,22 +54,9 @@ offset_left = 645.0
 offset_top = -491.0
 offset_right = 806.0
 offset_bottom = -387.0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_kadkp")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("3_tc2w4")
-
-[node name="Unalived" type="Label" parent="Player/Kills"]
-layout_mode = 0
-offset_left = -116.0
-offset_top = 28.0
-offset_right = 17.0
-offset_bottom = 70.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_0kqye")
-text = "unalived:"
+script = ExtResource("3_tc2w4")
+theme_override_font_sizes/font_size = 30
 
 [node name="PineTree" parent="." instance=ExtResource("2_iayfq")]
 position = Vector2(1506, 318)
@@ -132,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.831373, 0, 0, 1)
 theme_override_font_sizes/font_size = 117
-text = "No Kindness Buns for you..."
+text = "No Kindeness Buns for you..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -150,41 +123,28 @@ theme_override_font_sizes/font_size = 100
 text = "Try Again?"
 horizontal_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="GameOver"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -422.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameOver/CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 27
-alignment = 1
-
-[node name="Yes" type="Button" parent="GameOver/CenterContainer/HBoxContainer"]
+[node name="Yes" type="Button" parent="GameOver"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 2
-size_flags_horizontal = 3
+offset_left = 434.0
+offset_top = 794.0
+offset_right = 832.0
+offset_bottom = 954.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_a8ncj")
-action_mode = 0
 text = "I will have my buns!"
 script = ExtResource("4_kn82c")
 
-[node name="No" type="Button" parent="GameOver/CenterContainer/HBoxContainer"]
+[node name="No" type="Button" parent="GameOver"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 2
+offset_left = 925.0
+offset_top = 791.0
+offset_right = 1276.0
+offset_bottom = 943.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_qg6vk")
-action_mode = 0
 text = "I'm allergic to bread"
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="GameOver/CenterContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
-[connection signal="pressed" from="GameOver/CenterContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="GameOver/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="GameOver/No" to="." method="_on_no_pressed"]

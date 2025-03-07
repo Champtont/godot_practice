@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 10
+var health = 3
 
 #store ref to player position
 # var player = get_node("/root/Game/player") will result in error because needs to be ready
@@ -24,3 +24,4 @@ func take_damage():
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+		Survivegame.kills +=1
