@@ -103,8 +103,8 @@ position = Vector2(150, 974)
 [node name="PineTree6" parent="." instance=ExtResource("2_iayfq")]
 position = Vector2(322, 960)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.377
+[node name="MobTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
@@ -185,6 +185,6 @@ action_mode = 0
 text = "I'm allergic to bread"
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameOver/CenterContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="GameOver/CenterContainer/HBoxContainer/No" to="." method="_on_no_pressed"]

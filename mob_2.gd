@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-var health = 1
+var health = 2
 
 #store ref to player position
 # var player = get_node("/root/Game/player") will result in error because needs to be ready
 @onready var player = get_node("/root/Game/Player")
 
 func  _ready():
-	%Slime.play_walk()
+	%Slime2.play_walk()
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -16,7 +16,7 @@ func _physics_process(delta):
 	
 func take_damage():
 	health -= 1
-	%Slime.play_hurt()
+	%Slime2.play_hurt()
 	
 	if health == 0:
 		queue_free()
